@@ -48,6 +48,17 @@
                     
                     <input type="file" class="form-control" id="cover_image" name="cover_image" value="{{ old('cover_image') }} " onchange="loadFile(event)">
                 </div>
+
+                <div class="mb-3">
+                    <label for="type_id" class="form-label">Categoria</label>
+                    <select class="form-select" name="type_id" id="type_id">
+                        <option value="">Senza categoria</option>
+                        @foreach ($types as $type)
+                            <option value="{{ $type->id }}" {{ old('type_id', $project->type_id) == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+
+                </div>
                 
                 <button type="submit" class="btn btn-primary">Modifica</button>
             </form>

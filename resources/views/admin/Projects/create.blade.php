@@ -52,7 +52,7 @@
                     <select class="form-select" name="type_id" id="type_id">
                         <option value="">Senza categoria</option>
                         @foreach ($types as $type)
-                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                            <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
                         @endforeach
                     </select>
 
