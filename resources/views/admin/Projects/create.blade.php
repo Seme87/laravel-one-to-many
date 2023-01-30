@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
+
+   
     
     <div class="container">
         <h1>Crea Project</h1>
@@ -44,6 +46,16 @@
                     </div>
                     
                     <input type="file" class="form-control" id="cover_image" name="cover_image" value="{{ old('cover_image') }} " onchange="loadFile(event)">
+                </div>
+                <div class="mb-3">
+                    <label for="type_id" class="form-label">Categoria</label>
+                    <select class="form-select" name="type_id" id="type_id">
+                        <option value="">Senza categoria</option>
+                        @foreach ($types as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Crea</button>
